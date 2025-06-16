@@ -1,0 +1,44 @@
+//src/styles/main.scss
+@use 'variables';
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: variables.$font-primary;
+  background: #EBEBEB;
+
+  // Por defecto: padding lateral para móviles
+  //padding: 0 clamp(8px, 0vw, 24px);
+
+  // Para pantallas grandes, sin espacio a los lados
+  @media (min-width: variables.$bp-lg) {
+    padding: 0;
+  }
+}
+
+a { text-decoration: none; color: inherit; }
+
+

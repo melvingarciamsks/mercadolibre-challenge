@@ -1,0 +1,91 @@
+@use '../styles/variables' as v;
+
+.searchbar {
+  background: v.$yellow;
+  padding: 0.5rem 0;
+
+  &__container {
+    max-width: v.$bp-lg;    // 1200 px
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 34px;              // evita valores mágicos
+    position: relative;
+  }
+
+  &__logo {
+    height: 2.5rem;         // 40 px aprox
+    flex-shrink: 0;
+  }
+
+  &__form {
+    flex: 1;                // ocupa todo el ancho disponible
+    display: flex;
+    height: 40px;
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: box-shadow .15s, border-color .15s;
+
+    &:focus-within {
+      border-color: #3483FA;
+      box-shadow: 0 0 0 1px #3483FA;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 0 0.75rem;
+    font: 400 1rem v.$font-primary;
+    color: rgba(0, 0, 0, .55);
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  &__button {
+    width: 3rem;            // 48 px aprox
+    border: none;
+    display: grid;
+    place-content: center;
+    background: transparent;
+    cursor: pointer;
+    border-left: 1px solid #e6e6e6;
+
+    img { width: 18px; height: 18px; }
+  }
+
+  /* ─────────────────────────────────────
+     Breakpoint: tablets y abajo (≤ 768px)
+     ───────────────────────────────────── */
+  @media (max-width: v.$bp-sm) {
+    &__container {
+      //align-items: stretch;
+      width: 95%; 
+      gap: .75rem;
+    }
+
+    &__logo {
+      //height: 2rem;                  // más pequeño en móviles
+      //margin: 0 auto;                // centrado
+      display: none; 
+    }
+
+    &__form {
+      //width: 100%;                   // barra ocupa todo el ancho
+      height: 40px; 
+      margin: 0 auto; 
+    }
+  }
+
+  /* ─────────────────────────────────────
+     Breakpoint: phones muy chicos (≤ 480px)
+     ───────────────────────────────────── */
+  @media (max-width: v.$bp-xs) {
+    &__input { 
+        font-size: 16px; 
+        //height: 100%; 
+    } 
+    &__button { width: 2.5rem; }     // 40 px aprox
+  }
+}
