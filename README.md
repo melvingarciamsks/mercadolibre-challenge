@@ -109,6 +109,6 @@ Este proyecto puede ejecutarse fácilmente usando Docker Compose. Asegúrate de 
 
 Puedes usar los siguientes endpoints:
 
-- `/api/items`
-- `/api/items?search=iphone`
+- `/api`
+- `/api/items?search=`
 - `/api/items/:id` (usa un ID válido del dataset)
