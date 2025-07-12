@@ -9,7 +9,7 @@ export function makeSearchController({ repo, mapper }) {
       const q   = (req.query.search || '').toLowerCase();   // hoy no filtras; se deja por si mañana sí
       const page  = parseInt(req.query.page  || '1', 10);
       const limit = parseInt(req.query.limit || '10', 10);
-      console.log('lo que recibe en la interfaz >> ',  q);
+      //console.log('lo que recibe en la interfaz >> ',  q);
       const dto = await useCase(q, page, limit);                         
       res.json(dto);
     } catch (err) {

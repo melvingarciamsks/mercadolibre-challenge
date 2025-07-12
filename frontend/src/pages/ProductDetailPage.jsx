@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar'
+import SearchBar from '../components/SearchBar/SearchBar'
 import ProductDetail from '../components/ProductDetail'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function ProductDetailPage() {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
+  useDocumentTitle(product?.title)
 
   useEffect(() => {
     fetch(`http://localhost:4000/api/items/${id}`)

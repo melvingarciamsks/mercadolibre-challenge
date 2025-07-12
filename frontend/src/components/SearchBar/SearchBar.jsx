@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import './SearchBar.scss'
-import logo from '../assets/logo_large_25years@2x.png'
-import iconSearch from '../assets/ic_Search@2x.png.png'
-import WelcomeTooltip from './WelcomeTooltip'
+import logo from '../../assets/logo_large_25years@2x.png'
+import iconSearch from '../../assets/ic_Search@2x.png.png'
+import WelcomeTooltip from '../WelcomeTooltip'
 
 export default function SearchBox({ initialValue = ''}) {
   const [query, setQuery] = useState(initialValue)

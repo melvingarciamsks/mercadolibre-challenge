@@ -1,14 +1,17 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar'
+import { useEffect, useState, useCallback } from 'react'
+import SearchBar from '../components/SearchBar/SearchBar'
 import ResultCard from '../components/ResultCard'
 import Pagination from '../components/Pagination'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function SearchResultsPage() {
   const location = useLocation()
+  const navigate = useNavigate()
   const query = new URLSearchParams(location.search).get('search') || ''
   const [items, setItems] = useState([])
   const [page,  setPage]  = useState(1)
+  useDocumentTitle(query + ' | MercadoLibre')
 
   useEffect(() => {
     
@@ -18,12 +21,16 @@ export default function SearchResultsPage() {
     
   }, [query, page])
 
+  const handleItemClick = useCallback((id) => {
+    navigate(`/items/${id}`)
+  }, [navigate])
+
   return (
     <>
       <SearchBar initialValue={query} />
       <main className="results-page">
         {items?.items?.map(item => (
-            <ResultCard key={item.id} item={item} />
+            <ResultCard key={item.id} item={item} onClick={handleItemClick} />
         ))}
       </main>
 

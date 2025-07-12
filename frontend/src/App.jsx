@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import ProductDetailPage from './pages/ProductDetailPage'
-import './App.css'
 
 function App() {
 

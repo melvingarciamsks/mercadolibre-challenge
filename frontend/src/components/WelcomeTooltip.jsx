@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeTooltip.scss';
+import { useWelcomeStore } from '../store/welcomeStore';
 
 const WelcomeTooltip = () => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
+  const { shown, showOnce } = useWelcomeStore();
 
+  const handleClose = () => {
+    showOnce();
+  };
+
+  if (shown) return null;
+  /*
   useEffect(() => {
     const alreadyShown = localStorage.getItem('welcome-tooltip-shown');
     if (!alreadyShown) {
@@ -16,7 +24,8 @@ const WelcomeTooltip = () => {
     setShow(false);
   };
 
-  if (!show) return null;
+  if (!show) return null;*/
+
 
   return (
     <div className="tooltip">

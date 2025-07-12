@@ -1,12 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import './ResultCard.scss'
 import { formatPrice } from '../utils/formatPrice';
 
-export default function ResultCard ({ item }) {
-  const navigate = useNavigate()
+const ResultCard = React.memo(function ResultCard ({ item, onClick }) {
+
+  console.log(`Render: ${item.title}`)
 
   return (
-    <article className="card" onClick={() => navigate(`/items/${item.id}`)}>
+    <article className="card" onClick={() => onClick(item.id)}>
       <img className="card__img" src={item.picture} alt={item.title} />
 
       <div className="card__info">
@@ -27,4 +28,6 @@ export default function ResultCard ({ item }) {
       </div>
     </article>
   )
-}
+})
+
+export default ResultCard
